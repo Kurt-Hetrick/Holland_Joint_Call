@@ -1,4 +1,4 @@
-EXOME JOINT CALLING README (NOT MENDEL)
+Holland_Joint_Call
 
 This submitter and it's subscripts are used for joint calling the Holland_MendelianDisorders_SeqWholeExome_033117_1 exome project.
 
