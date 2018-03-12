@@ -65,9 +65,9 @@ CREATE_GVCF_LIST()
 {
 OLD_GVCF_LIST=$(ls -tr $CORE_PATH/$PROJECT/*.samples.gvcf.list | tail -n1)
 
-TOTAL_SAMPLES=(`(cat $OLD_GVCF_LIST ; awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | awk 'BEGIN{OFS="/"}{print "'$CORE_PATH'"$1,"GVCF",$2".genome.vcf"}') | sort | uniq | wc -l`)
+TOTAL_SAMPLES=(`(cat $OLD_GVCF_LIST ; awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | awk 'BEGIN{OFS="/"}{print "'$CORE_PATH'",$1,"GVCF",$2".genome.vcf"}') | sort | uniq | wc -l`)
 
-(cat $OLD_GVCF_LIST ; awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | awk 'BEGIN{OFS="/"}{print "'$CORE_PATH'"$1,"GVCF",$2".genome.vcf"}') | sort | uniq \
+(cat $OLD_GVCF_LIST ; awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | awk 'BEGIN{OFS="/"}{print "'$CORE_PATH'",$1,"GVCF",$2".genome.vcf"}') | sort | uniq \
 >| $CORE_PATH'/'$PROJECT'/'$TOTAL_SAMPLES'.samples.gvcf.list'
 
 GVCF_LIST=(`echo $CORE_PATH'/'$PROJECT'/'$TOTAL_SAMPLES'.samples.gvcf.list'`)
