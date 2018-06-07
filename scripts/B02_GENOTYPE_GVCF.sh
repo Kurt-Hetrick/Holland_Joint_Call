@@ -23,6 +23,7 @@ CMD=$CMD' -R '$REF_GENOME
 CMD=$CMD' --annotateNDA'
 CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/GVCF/AGGREGATE/'$PREFIX'.'$BED_FILE_NAME'.genome.vcf'
 CMD=$CMD' --disable_auto_index_creation_and_locking_when_reading_rods'
+CMD=$CMD' -XL 11:26690734-26690734'
 CMD=$CMD' -et NO_ET'
 CMD=$CMD' -K '$KEY
 CMD=$CMD' -o '$CORE_PATH'/'$PROJECT'/TEMP/'$PREFIX'.'$BED_FILE_NAME'.temp.vcf'
