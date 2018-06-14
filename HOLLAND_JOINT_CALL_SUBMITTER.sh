@@ -52,6 +52,14 @@ KNOWN_SNPS="/mnt/research/tools/PIPELINE_FILES/GATK_resource_bundle/2.8/b37/dbsn
 VERACODE_CSV="/mnt/research/tools/LINUX/CIDRSEQSUITE/Veracode_hg18_hg19.csv"
 
 
+# load gcc 5.1.0 for programs like verifyBamID
+## this will get pushed out to all of the compute nodes since I specify env var to pushed out with qsub
+module load gcc/5.1.0
+
+# explicitly setting this b/c not everybody has had the $HOME directory transferred and I'm not going to through
+# and figure out who does and does not have this set correctly
+umask 0007
+
 ############################################################################
 #################Start of Combine Gvcf Functions############################
 ############################################################################
