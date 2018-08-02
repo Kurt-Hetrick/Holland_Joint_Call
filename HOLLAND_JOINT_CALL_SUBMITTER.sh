@@ -12,13 +12,13 @@ fi
 module load datamash
 
 QUEUE_LIST=`qstat -f -s r \
-| egrep -v "^[0-9]|^-|^queue" \
-| cut -d @ -f 1 \
-| sort \
-| uniq \
-| egrep -v "bigmem.q|all.q|cgc.q|programmers.q|uhoh.q|rhel7.q" \
-| datamash collapse 1 \
-| awk '{print "-q",$1}'`
+	| egrep -v "^[0-9]|^-|^queue" \
+	| cut -d @ -f 1 \
+	| sort \
+	| uniq \
+	| egrep -v "bigmem.q|all.q|cgc.q|programmers.q|uhoh.q|rhel7.q|qtest.q" \
+	| datamash collapse 1 \
+	| awk '{print "-q",$1,"-l \x27hostname=!DellR730-03\x27"}'`
 
 PRIORITY="-11"
 
